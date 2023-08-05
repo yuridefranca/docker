@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  nodejs:
+    container_name: nodejs
+    image: yuridefranca/nodejs:1.1.0
+    tty: true
+    working_dir: /var/www/html
+    ports:
+      - "80:80"
+
+  php:
+    container_name: php
+    image: yuridefranca/php:1.1.0
+    tty: true
+    working_dir: /var/www/html
+    ports:
+      - "81:80"
+
+  php-npm:
+    container_name: php-npm
+    image: yuridefranca/php-npm:1.1.0
+    tty: true
+    working_dir: /var/www/html
+    ports:
+      - "82:80"
+
+  ubuntu:
+    container_name: ubuntu
+    image: yuridefranca/ubuntu:1.1.0
+    tty: true
