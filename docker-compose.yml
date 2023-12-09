@@ -3,7 +3,7 @@ version: '3.7'
 services:
   nodejs:
     container_name: nodejs
-    image: yuridefranca/nodejs:1.1.0
+    image: yuridefranca/nodejs:1.2.0
     tty: true
     working_dir: /var/www/html
     ports:
@@ -19,7 +19,7 @@ services:
 
   php-npm:
     container_name: php-npm
-    image: yuridefranca/php-npm:1.1.0
+    image: yuridefranca/php-npm:1.2.0
     tty: true
     working_dir: /var/www/html
     ports:
