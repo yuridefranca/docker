@@ -8,7 +8,6 @@ export ZSH="/root/.oh-my-zsh"
 
 ZSH_THEME="fino-time"
 plugins=(
-    zsh-autosuggestions,
     zsh-completions
 )
 

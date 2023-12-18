@@ -28,7 +28,6 @@ RUN echo "America/Sao_Paulo" > /etc/timezone &&\
 # Installing oh-my-zsh
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.4/zsh-in-docker.sh)" -- \
     -t fino-time \
-    -p https://github.com/zsh-users/zsh-autosuggestions \
     -p https://github.com/zsh-users/zsh-completions
 
 RUN sudo rm /root/.zshrc
