@@ -3,29 +3,30 @@ version: '3.7'
 services:
   nodejs:
     container_name: nodejs
-    image: yuridefranca/nodejs:1.2.0
-    tty: true
-    working_dir: /var/www/html
-    ports:
-      - "80:80"
-
-  php:
-    container_name: php
-    image: yuridefranca/php:1.1.0
+    image: yuridefranca/nodejs:2.0.0
+    command: /usr/bin/node /var/www/html/index.js
     tty: true
     working_dir: /var/www/html
     ports:
       - "81:80"
 
-  php-npm:
-    container_name: php-npm
-    image: yuridefranca/php-npm:1.2.0
+  php:
+    container_name: php
+    image: yuridefranca/php:2.0.0
     tty: true
     working_dir: /var/www/html
     ports:
       - "82:80"
 
+  php-npm:
+    container_name: php-npm
+    image: yuridefranca/php:2.0.0-npm
+    tty: true
+    working_dir: /var/www/html
+    ports:
+      - "83:80"
+
   ubuntu:
     container_name: ubuntu
-    image: yuridefranca/ubuntu:1.1.0
+    image: yuridefranca/ubuntu:1.1.1
     tty: true
