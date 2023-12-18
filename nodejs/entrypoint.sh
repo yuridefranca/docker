@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 sudo chmod a+rw -R .
+sudo service nginx start
 
 echo ""
 echo ""
@@ -13,5 +14,7 @@ echo ""
 echo "========================================"
 echo ""
 echo ""
+
+exec "$@"
 
 /bin/bash

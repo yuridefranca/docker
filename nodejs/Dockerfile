@@ -1,4 +1,8 @@
-FROM yuridefranca/ubuntu:1.1.0
+FROM yuridefranca/ubuntu:1.1.1
+
+EXPOSE 80
+
+WORKDIR /var/www/html
 
 # Install NodeJS
 ARG NODEJS_VERSION=20
@@ -13,7 +17,16 @@ RUN sudo apt-get update &&\
     npm install --location=global pnpm &&\
     npm install --location=global yarn
 
+#Installing nginx
+RUN sudo apt-get install -y nginx &&\
+    rm /etc/nginx/sites-available/*
+
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/sites-available /etc/nginx/sites-available
+
 COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+COPY ./index.js /var/www/html/index.js
 
 ENTRYPOINT [ "/entrypoint.sh" ]
